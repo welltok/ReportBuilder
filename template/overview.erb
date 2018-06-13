@@ -1,19 +1,22 @@
 <div class="row">
-  <div class="col m4 s12">
-    <canvas id="featuresDoughnut" width="400" height="400"></canvas>
+  <div class="col m3 s12">
+    <canvas id="featuresDoughnut" width="300" height="300"></canvas>
     <table id="metaDataFeatures" class="bordered">
       <tbody></tbody>
     </table>
   </div>
 
-  <div class="col m4 s12">
-    <canvas id="scenariosDoughnut" width="400" height="400"></canvas>
+  <div class="col m3 s12">
+    <canvas id="scenariosDoughnut" width="300" height="300"></canvas>
     <table id="metaDataScenarios" class="bordered">
       <tbody></tbody>
     </table>
   </div>
 
-  <div class="col m4 s12">
+  <div class="col m6 s12">
+    <% if options[:historic_data] %>
+      <%= get('history_graph').result(binding) %>
+    <% end %>
     <table id="metaData" class="bordered">
       <tbody>
       <tr><th>Total Time</th><td><%= duration(total_time(features)) %></td></tr>

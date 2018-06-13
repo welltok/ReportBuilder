@@ -4,6 +4,7 @@ $(document).ready(function () {
     $(".skipped").addClass("amber lighten-2");
     $(".undefined").addClass("amber lighten-2");
     $(".pending").addClass("amber lighten-2");
+    $(".flaky").addClass("orange lighten-2");
 
     var passed = $(".scenario.passed");
     var failed = $(".scenario.failed");
@@ -11,6 +12,7 @@ $(document).ready(function () {
     var undefined = $(".scenario.undefined");
     var pending = $(".scenario.pending");
     var scenarios = $(".scenario");
+    var flaky = $(".scenario.flaky");
 
     var working = $(".feature.working");
     var broken = $(".feature.broken");
@@ -22,6 +24,7 @@ $(document).ready(function () {
     skipped.prepend("<i class=\"material-icons\">error_outline</i>");
     undefined.prepend("<i class=\"material-icons\">error_outline</i>");
     pending.prepend("<i class=\"material-icons\">error_outline</i>");
+    flaky.prepend("<i class=\"material-icons\">highlight_off</i>");
 
     features.each(function () {
         var $this = $(this);
@@ -30,6 +33,7 @@ $(document).ready(function () {
         var sCount = $this.find(".scenario.skipped").length;
         var uCount = $this.find(".scenario.undefined").length;
         var ppCount = $this.find(".scenario.pending").length;
+        var flCount = $this.find(".scenario.flaky").length;
         if (pCount > 0) {
             $this.find(".collapsible-header").append("<span class=\"new badge teal lighten-2\" data-badge-caption=\"Passed\">" + pCount + "</span>");
         }
@@ -44,6 +48,9 @@ $(document).ready(function () {
         }
         if (ppCount > 0) {
             $this.find(".collapsible-header").append("<span class=\"new badge amber lighten-2\" data-badge-caption=\"Pending\">" + ppCount + "</span>");
+        }
+        if (flCount > 0) {
+            $this.find(".collapsible-header").append("<span class=\"new badge orange lighten-2\" data-badge-caption=\"Retried\">" + flCount + "</span>");
         }
     });
 
@@ -68,6 +75,7 @@ $(document).ready(function () {
     var undefinedCount = undefined.length;
     var pendingCount = pending.length;
     var scenariosCount = scenarios.length;
+    var flakyCount = flaky.length;
 
     var workingCount = working.length;
     var brokenCount = broken.length;
@@ -171,6 +179,13 @@ $(document).ready(function () {
         metaTableScenarios.append("<tr><th>Pending</th><td>" + ((pendingCount / scenariosCount) * 100).toFixed(1) + " %</td></tr>");
         scenariosDoughnutCountData.push(pendingCount);
         scenariosDoughnutLabels.push("Pending");
+        scenariosDoughnutBackgroundColor.push('rgba(255, 206, 86, 0.2)');
+        scenariosDoughnutBorderColor.push('rgba(255, 206, 86, 1)');
+    }
+    if (flakyCount > 0) {
+        metaTableScenarios.append("<tr><th>Retried</th><td>" + ((flakyCount / scenariosCount) * 100).toFixed(1) + " %</td></tr>");
+        scenariosDoughnutCountData.push(flakyCount);
+        scenariosDoughnutLabels.push("Retried");
         scenariosDoughnutBackgroundColor.push('rgba(255, 206, 86, 0.2)');
         scenariosDoughnutBorderColor.push('rgba(255, 206, 86, 1)');
     }

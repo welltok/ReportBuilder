@@ -1,0 +1,79 @@
+<canvas id="historyChart" width="600" height="300"></canvas>
+<script>
+    $(document).ready(function () {
+        const historyJobData = ["<%= options[:historic_data].map{|x| x[:url]}.join('", "') %>"];
+        const historyDateData = ["<%= options[:historic_data].map{|x| x[:date]}.join('", "') %>"];
+        const historyLabelData = ["<%= options[:historic_data].map{|x| x[:label]}.join('", "') %>"];
+        const historyChartData = {
+            labels: [historyDateData],
+            datasets: [
+                {
+                    label: 'Failed',
+                    data: [<%=options[:historic_data].map{|x| x[:failed]}.join(', ')%>],
+                    backgroundColor: 'rgba(242, 84, 84, 1)',
+                    borderWidth: 1
+                },
+
+                {
+                    label: 'Retried',
+                    data: [<%= options[:historic_data].map{|x| x[:retried]}.join(', ')%>],
+                    backgroundColor: 'rgba(253, 237, 114, 1)',
+                    borderWidth: 1
+                },
+
+                {
+                    label: 'Passed',
+                    data: [<%= options[:historic_data].map{|x| x[:passed]}.join(', ')%>],
+                    backgroundColor: 'rgba(189, 225, 51, 1)',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        const historyChartOptions = {
+            title: {
+                display: true,
+                text: 'Scenario History'
+            },
+            scales: {
+                yAxes: [{
+                    stacked: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Scenario Count'
+                    }
+                }],
+                xAxes: [{
+                    type: 'category',
+                    labels: historyDateData,
+                }]
+            },
+            onClick: function (evt) {
+                const elements = historyChart.getElementAtEvent(evt);
+                if (elements.length === 0) { return; }
+
+                element = historyChart.getElementAtEvent(evt)[0];
+                window.open(historyJobData[element._index], "_self");
+            },
+            tooltips: {
+                mode: 'x',
+                callbacks: {
+                    title: function(tooltipItems) {
+                        return historyLabelData[tooltipItems[0].index];
+                    }
+                }
+            }
+        };
+
+        let historyChartElement = document.getElementById("historyChart").getContext('2d');
+        let historyChart = new Chart(historyChartElement, {
+            type: 'line',
+            data: historyChartData,
+            options: historyChartOptions
+        });
+
+        if (historyLabelData.length > 0) {
+            historyChart.draw();
+        }
+    });
+</script>

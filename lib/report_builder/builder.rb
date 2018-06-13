@@ -67,6 +67,10 @@ module ReportBuilder
       @erb[template] ||= ERB.new(File.read(File.dirname(__FILE__) + '/../../template/' + template + '.erb'), nil, nil, '_' + template)
     end
 
+    def get_js(file)
+      File.read(File.dirname(__FILE__) + '/../../js/' + file + '.js')
+    end
+
     def get_groups(input_path)
       groups = []
       if input_path.is_a? Hash
