@@ -2,28 +2,26 @@
 <script>
     $(document).ready(function () {
         const historyJobData = ["<%= options[:historic_data].map{|x| x[:url]}.join('", "') %>"];
-        const historyDateData = ["<%= options[:historic_data].map{|x| x[:date]}.join('", "') %>"];
         const historyLabelData = ["<%= options[:historic_data].map{|x| x[:label]}.join('", "') %>"];
         const historyChartData = {
-            labels: [historyDateData],
             datasets: [
                 {
                     label: 'Failed',
-                    data: [<%=options[:historic_data].map{|x| x[:failed]}.join(', ')%>],
+                    data: <%=JSON.dump(options[:historic_data].map{|x| x[:failed]}.zip(options[:historic_data].map{|x| x[:date]}).map{|data| {x: data[1], y: data[0]}})%>,
                     backgroundColor: 'rgba(242, 84, 84, 1)',
                     borderWidth: 1
                 },
 
                 {
                     label: 'Retried',
-                    data: [<%= options[:historic_data].map{|x| x[:retried]}.join(', ')%>],
+                    data: <%=JSON.dump(options[:historic_data].map{|x| x[:retried]}.zip(options[:historic_data].map{|x| x[:date]}).map{|data| {x: data[1], y: data[0]}})%>,
                     backgroundColor: 'rgba(253, 237, 114, 1)',
                     borderWidth: 1
                 },
 
                 {
                     label: 'Passed',
-                    data: [<%= options[:historic_data].map{|x| x[:passed]}.join(', ')%>],
+                    data: <%=JSON.dump(options[:historic_data].map{|x| x[:passed]}.zip(options[:historic_data].map{|x| x[:date]}).map{|data| {x: data[1], y: data[0]}})%>,
                     backgroundColor: 'rgba(189, 225, 51, 1)',
                     borderWidth: 1
                 }
@@ -44,8 +42,13 @@
                     }
                 }],
                 xAxes: [{
-                    type: 'category',
-                    labels: historyDateData,
+                    type: 'time',
+                    time: {
+                        unit: 'day',
+                        displayFormats: {
+                            default: 'MMM DD'
+                        }
+                    },
                 }]
             },
             onClick: function (evt) {
@@ -61,6 +64,28 @@
                     title: function(tooltipItems) {
                         return historyLabelData[tooltipItems[0].index];
                     }
+                }
+            },
+
+            pan: {
+                enabled: true,
+                mode: 'x',
+                rangeMin: {
+                    x: <%=options[:historic_data].map{|x| x[:date]}[0]%>
+                },
+                rangeMax: {
+                    x: <%=options[:historic_data].map{|x| x[:date]}[-1]%>
+                }
+            },
+
+            zoom: {
+                enabled: true,
+                mode: 'x',
+                rangeMin: {
+                    x: 0
+                },
+                rangeMax: {
+                    x: <%=options[:historic_data].map{|x| x[:date]}[-1]%> - <%=options[:historic_data].map{|x| x[:date]}[0]%>
                 }
             }
         };
