@@ -144,7 +144,9 @@
               }
             ],
             "status": "failed",
-            "duration": 14703325000
+            "duration": 14703325000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-some-broken-functionality;i-am-some-undefined-testing-scenario-of-some-functionality",
@@ -272,7 +274,9 @@
               }
             ],
             "status": "undefined",
-            "duration": 208000
+            "duration": 208000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-some-broken-functionality;i-am-some-pending-testing-scenario-of-some-functionality",
@@ -401,7 +405,9 @@
               }
             ],
             "status": "pending",
-            "duration": 278000
+            "duration": 278000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-some-broken-functionality;i-am-some-testing-scenario-of-some-functionality",
@@ -529,7 +535,9 @@
               }
             ],
             "status": "passed",
-            "duration": 241000
+            "duration": 241000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-some-broken-functionality;i-am-some-other-testing-scenario-of-some-functionality",
@@ -657,7 +665,9 @@
               }
             ],
             "status": "passed",
-            "duration": 234000
+            "duration": 234000,
+            "rally_id": null,
+            "rally_link": null
           }
         ],
         "status": "broken",
@@ -801,7 +811,9 @@
               }
             ],
             "status": "passed",
-            "duration": 335000
+            "duration": 335000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-tag-functionality;i-am-some-testing-scenario-with-one-tags-of-some-functionality",
@@ -929,7 +941,9 @@
               }
             ],
             "status": "passed",
-            "duration": 369000
+            "duration": 369000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-tag-functionality;i-am-some-testing-scenario-of-some-functionality",
@@ -1069,7 +1083,9 @@
               }
             ],
             "status": "passed",
-            "duration": 284000
+            "duration": 284000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-tag-functionality;i-am-some-other-testing-scenario-with-watir-screenshot",
@@ -1230,7 +1246,9 @@
               }
             ],
             "status": "passed",
-            "duration": 14678378000
+            "duration": 14678378000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-tag-functionality;i-am-scenario-with-more-steps",
@@ -1450,7 +1468,9 @@
               }
             ],
             "status": "passed",
-            "duration": 409000
+            "duration": 409000,
+            "rally_id": null,
+            "rally_link": null
           }
         ],
         "status": "working",
@@ -1595,7 +1615,9 @@
               }
             ],
             "status": "passed",
-            "duration": 233000
+            "duration": 233000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-feature-for-testing-some-functionality;i-am-some-other-testing-scenario-of-some-functionality",
@@ -1723,7 +1745,9 @@
               }
             ],
             "status": "passed",
-            "duration": 330000
+            "duration": 330000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-feature-for-testing-some-functionality;i-am-some-testing-scenario-with-two-tags-of-some-functionality",
@@ -1855,7 +1879,9 @@
               }
             ],
             "status": "passed",
-            "duration": 1145000
+            "duration": 1145000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-feature-for-testing-some-functionality;i-am-some-testing-scenario-of-other-functionality",
@@ -1983,7 +2009,9 @@
               }
             ],
             "status": "passed",
-            "duration": 290000
+            "duration": 290000,
+            "rally_id": null,
+            "rally_link": null
           }
         ],
         "status": "working",
@@ -2123,7 +2151,9 @@
               }
             ],
             "status": "passed",
-            "duration": 472000
+            "duration": 472000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-some-functionality;i-am-some-testing-scenario-outline-of-other-functionality;;2",
@@ -2251,7 +2281,9 @@
               }
             ],
             "status": "passed",
-            "duration": 275000
+            "duration": 275000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-some-functionality;i-am-some-testing-scenario-outline-of-other-functionality;;3",
@@ -2379,7 +2411,9 @@
               }
             ],
             "status": "passed",
-            "duration": 276000
+            "duration": 276000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-some-functionality;i-am-some-testing-scenario-of-some-functionality",
@@ -2505,7 +2539,9 @@
               }
             ],
             "status": "failed",
-            "duration": 476000
+            "duration": 476000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "i-am-some-other-feature-for-testing-some-functionality;i-am-some-other-testing-scenario-of-some-functionality",
@@ -2633,7 +2669,9 @@
               }
             ],
             "status": "passed",
-            "duration": 212000
+            "duration": 212000,
+            "rally_id": null,
+            "rally_link": null
           }
         ],
         "status": "broken",
@@ -2784,7 +2822,9 @@
               }
             ],
             "status": "passed",
-            "duration": 375000
+            "duration": 375000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "this-is-a-feature-with-table-in-step;i-am-some-testing-scenario-of-some-functionality",
@@ -2912,7 +2952,9 @@
               }
             ],
             "status": "passed",
-            "duration": 8828000
+            "duration": 8828000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "this-is-a-feature-with-table-in-step;i-am-some-other-testing-scenario-of-some-functionality",
@@ -3067,7 +3109,9 @@
               }
             ],
             "status": "passed",
-            "duration": 391000
+            "duration": 391000,
+            "rally_id": null,
+            "rally_link": null
           },
           {
             "id": "this-is-a-feature-with-table-in-step;i-am-some-testing-scenario-of-other-functionality",
@@ -3223,7 +3267,9 @@
               }
             ],
             "status": "failed",
-            "duration": 314000
+            "duration": 314000,
+            "rally_id": null,
+            "rally_link": null
           }
         ],
         "status": "broken",

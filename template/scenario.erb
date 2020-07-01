@@ -10,6 +10,12 @@
     <h5><%= scenario['name'] %> (<%= duration(scenario['duration']) %>)</h5>
     <%= feature['uri'] %>:<%= scenario['line'] %>
 
+    <% if scenario['rally_id'] %>
+        <div>Rally ID:
+          <a class="tooltipped" href="<%= scenario['rally_link'] %>" style="color: inherit;" target="_blank" data-tooltip="View in Rally"><%= scenario['rally_id'] %>️</a>
+        </div>
+    <% end %>
+
     <% if scenario['before'] %>
         <% scenario['before'].each do |hook| %>
             <%= get('hook').result(binding) %>
