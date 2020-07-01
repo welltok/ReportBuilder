@@ -103,7 +103,7 @@ pipeline {
 							env | set
 
 							bundle install --path vendor/bundle
-							bundle exec rspec spec
+							bundle exec rspec testing
 
 							#
 							# All code after this is Jenkins finishing up the build
