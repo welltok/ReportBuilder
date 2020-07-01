@@ -76,7 +76,9 @@
           }
         ],
         "status": "passed",
-        "duration": 74000
+        "duration": 74000,
+        "rally_id": null,
+        "rally_link": null
       }
     ],
     "status": "working",
