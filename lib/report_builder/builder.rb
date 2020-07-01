@@ -184,6 +184,7 @@ module ReportBuilder
             after.merge! 'status' => after['result']['status'], 'duration' => after['result']['duration']
           end
           scenario.merge! 'status' => scenario_status(scenario), 'duration' => total_time(scenario['before']) + total_time(scenario['steps']) + total_time(scenario['after'])
+          scenario.merge! 'rally_id' => rally_id(scenario), 'rally_link' => rally_link(scenario)
         end
         feature['elements'] = feature['elements'].group_by do |scenario|
           scenario['id']
@@ -264,6 +265,15 @@ module ReportBuilder
       else
         "#{'%.3f' % s}s"
       end
+    end
+
+    def rally_id(scenario)
+      tc_tag = scenario['tags'].find { |tag| tag['name'].match(/^@TC\d+$/) }
+      tc_tag['name'].match(/@(TC[\d]+)/).captures[0] if tc_tag
+    end
+
+    def rally_link(scenario)
+      "https://rally1.rallydev.com/#/search?keywords=#{rally_id(scenario)}" if rally_id(scenario)
     end
   end
 end

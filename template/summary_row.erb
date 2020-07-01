@@ -14,6 +14,14 @@
   <% end %>
 </td>
 
+<td class="uppercase hoverable">
+  <% if scenario['rally_id'] %>
+    <a class="tooltipped white-text" href="<%= scenario['rally_link'] %>" target="_blank" data-tooltip="View in Rally"><%= scenario['rally_id'] %>️</a>
+  <% else %>
+    -
+  <% end %>
+</td>
+
 <td class="uppercase">
   <%= scenario['status'] %>
 </td>
