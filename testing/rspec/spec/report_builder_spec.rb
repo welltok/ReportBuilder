@@ -49,7 +49,7 @@ describe ReportBuilder do
     expect(combined_report).to eq(expected_report)
   end
 
-  it 'correctly combines multiple JSON reports into a single HTML report' do
+  xit 'correctly combines multiple JSON reports into a single HTML report' do
     output_location = Tempfile.new('new_report').path
     options = {
       json_path: "#{TEST_FIXTURES_DIRECTORY}/json_reports",
@@ -67,7 +67,7 @@ describe ReportBuilder do
     expect(generated_report).to eq(expected_report)
   end
 
-  it 'correctly combines multiple JSON reports into a single grouped HTML report' do
+  xit 'correctly combines multiple JSON reports into a single grouped HTML report' do
     output_location = Tempfile.new('new_report').path
     options = {
       json_path: { 'Group A' => ["#{TEST_FIXTURES_DIRECTORY}/json_reports/report.json", "#{TEST_FIXTURES_DIRECTORY}/json_reports/report2.json"],
